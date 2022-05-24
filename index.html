@@ -1,0 +1,120 @@
+<html>
+    <head></head>
+    <body>
+        <style>
+            html {
+                background: #3fb3a2;
+                color: #022149;
+            }
+            .wrapper {
+                display: flex;
+            }
+            .box {
+                margin: 5px;
+                width: 300px;
+                height: 200px;
+                background: #c38c9d;
+                border: 2px solid #022149;
+            }
+
+            .two {
+                background: #e7a87c;
+
+            }
+            .two .heading{
+                    background: #e17c5e;
+                    color: #022149;
+            }
+            .red {
+                color: #7f4636;
+            }
+            .green{
+                color: #1f5c53;
+            }
+
+            .heading {
+                background: #825e69;
+                color: #cec;
+                margin: 0;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            p {
+                padding: 0 10px;
+            }
+
+            .hidden {
+                display: none;
+            }
+        </style>
+        <div class="wrapper">
+            <div class="box one">
+                <p class="heading">_colours.scss</p>
+                <p>$color-pink90: #3e1031 !default;</p>
+            </div>
+ 
+            <div class="box three">
+                <p class="heading">_ug-course.scss</p>
+                <p class="a-one">
+                    .apply-now {<br />
+                    background:$color-pink90;<br />
+                    }
+                </p>
+                <p class="a-one a-two hidden">
+                    .apply-now {<br />
+                    <s>background: $color-pink90;</s> <br>
+                    <span class="red">background: $color-secondary-brand;</span
+                    ><br />
+                    }
+                </p>
+                <p class="a-two hidden">
+                    .apply-now {<br />
+                    <s>background: $color-pink90;</s> <br>
+                    <s>background: $color-secondary-brand;</s>
+                    <span class="red">background: $color-ug-apply-bg;</span
+                    ><br />
+                    }
+                </p>
+            </div>
+            <div class="box four a-three hidden" data-visible="false">
+                <p class="heading">_scp.scss</p>
+                <p>
+                    .pathway-card { <br />
+                    border: 1px solid <span class="red">$color-secondary-brand;</span><br />
+                    <b><i>OR</i></b> <br>
+                    border: 1px solid <span class="green">$color-scp-pathway-bg;</span><br />
+                    }
+                </p>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="box two a-one hidden">
+                <p class="heading">_palette.scss</p>
+                <p>$color-secondary-brand: $color-pink90;</p>
+                <p class="a-two hidden red">$color-ug-apply-bg: $color-secondary-brand;</p>
+                <p class="a-three hidden green">$color-scp-pathway-bg: $color-secondary-brand;</p>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="" onclick="transition('one');">1</button>
+            <button onclick="transition('two');">2</button>
+            <button onclick="transition('three');">3</button>
+        </div>
+
+        <script>
+            function transition(name) {
+                
+                var elements = document.querySelectorAll(`.a-${name}`);
+
+                for (let e of elements){
+                    if (e.classList.contains('hidden')) {
+                        e.classList.remove('hidden');
+                    } else {
+                        e.classList.add('hidden');
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
